@@ -48,7 +48,3 @@ $ npm run dev
 # To see the incomplete storybook components
 npm run storybook
 ```
-
-## :memo: License
-
-This project is made available under the MIT License.
