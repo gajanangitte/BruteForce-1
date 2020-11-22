@@ -33,3 +33,24 @@ exports.unvote = async (req, res) => {
   const question = await req.question.vote(id, 0);
   return res.json(question);
 };
+
+exports.upvoteB = async (req, res) => {
+  const { id } = req.user;
+  const blog = await req.blog.vote(id, 1);
+  return res.json(blog);
+};
+
+exports.downvoteB = async (req, res) => {
+  const { id } = req.user;
+
+  const blog = await req.blog.vote(id, -1);
+  return res.json(blog);
+};
+
+exports.unvoteB = async (req, res, next) => {
+  const { id } = req.user;
+  
+  const blog = await req.blog.vote(id, 0);
+  return res.json(blog);
+
+};

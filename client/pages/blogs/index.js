@@ -2,31 +2,34 @@ import React, { useState, useEffect } from 'react'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 
-import { publicFetch } from '../util/fetcher'
+import { publicFetch } from '../../util/fetcher'
 
-import Layout from '../components/layout'
-import QuestionWrapper from '../components/question/question-wrapper'
-import QuestionStats from '../components/question/question-stats'
-import QuestionSummary from '../components/question/question-summary'
-import PageTitle from '../components/page-title'
-import ButtonGroup from '../components/button-group'
-import { Spinner } from '../components/icons'
+import Layout from '../../components/layout'
+import QuestionWrapper from '../../components/question/question-wrapper'
+import QuestionStats from '../../components/question/question-stats'
+import QuestionSummary from '../../components/question/question-summary'
+import PageTitle from '../../components/page-title'
+import ButtonGroup from '../../components/button-group'
+import { Spinner } from '../../components/icons'
+import BlogWrapper from '../../components/blog/blog-wrapper'
+import BlogStats from '../../components/blog/blog-stats'
+import BlogSummary from '../../components/blog/blog-summary'
 
-const HomePage = () => {
+const Blogs = () => {
   const router = useRouter()
 
-  const [questions, setQuestions] = useState(null)
+  const [blogs, setBlogs] = useState(null)
   const [sortType, setSortType] = useState('Votes')
 
   useEffect(() => {
     const fetchQuestion = async () => {
-      const { data } = await publicFetch.get('/question')
-      setQuestions(data)
+      const { data } = await publicFetch.get('/blog')
+      setBlogs(data)
     }
 
     const fetchQuestionByTag = async () => {
-      const { data } = await publicFetch.get(`/questions/${router.query.tag}`)
-      setQuestions(data)
+      const { data } = await publicFetch.get(`/blogs/${router.query.tag}`)
+      setBlogs(data)
     }
 
     if (router.query.tag) {
@@ -55,11 +58,11 @@ const HomePage = () => {
     <Layout>
       <Head>
         <title>
-          {router.query.tag ? router.query.tag : 'Home'}
+          {router.query.tag ? router.query.tag : 'Blogs'}
         </title>
       </Head>
 
-      <PageTitle title={router.query.tag ? `Questions tagged [${router.query.tag}]` : 'All Questions'} button borderBottom={false} />
+      <PageTitle title={router.query.tag ? `Questions tagged [${router.query.tag}]` : 'All Blogs'} button borderBottom={false} />
 
       <ButtonGroup
         borderBottom
@@ -68,19 +71,19 @@ const HomePage = () => {
         setSelected={setSortType}
       />
 
-      {!questions && (
+      {!blogs && (
         <div className="loading">
           <Spinner />
         </div>
       )}
 
-      {questions
+      {blogs
         ?.sort(handleSorting())
         .map(
           ({
             id,
             votes,
-            answers,
+            comments,
             views,
             title,
             text,
@@ -88,13 +91,13 @@ const HomePage = () => {
             author,
             created
           }) => (
-            <QuestionWrapper key={id}>
-              <QuestionStats
+            <BlogWrapper key={id}>
+              <BlogStats
                 voteCount={votes.length}
-                answerCount={answers.length}
+                answerCount={comments.length}
                 view={views}
               />
-              <QuestionSummary
+              <BlogSummary
                 id={id}
                 title={title}
                 tags={tags}
@@ -102,12 +105,13 @@ const HomePage = () => {
                 createdTime={created}
               >
                 {text}
-              </QuestionSummary>
-            </QuestionWrapper>
+              </BlogSummary>
+            </BlogWrapper>
           )
         )}
+
     </Layout>
   )
 }
 
-export default HomePage
+export default Blogs

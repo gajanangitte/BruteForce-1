@@ -9,7 +9,11 @@ import { ArrowUp, ArrowDown } from '../../icons'
 
 import styles from './post-vote.module.css'
 
+<<<<<<< HEAD
 const PostVote = ({ score, votes, questionId, answerId, setQuestion }) => {
+=======
+const PostVote = ({ score, votes, questionId, answerId, setQuestion, blogId, setBlog }) => {
+>>>>>>> master
   const { authState, isAuthenticated } = useContext(AuthContext)
   const { authAxios } = useContext(FetchContext)
   const { handleComponentVisible } = useContext(ModalContext)
@@ -23,6 +27,7 @@ const PostVote = ({ score, votes, questionId, answerId, setQuestion }) => {
   }
 
   const upVote = async () => {
+<<<<<<< HEAD
     const { data } = await authAxios.get(
       `/votes/upvote/${questionId}/${answerId ? answerId : ''}`
     )
@@ -41,6 +46,55 @@ const PostVote = ({ score, votes, questionId, answerId, setQuestion }) => {
       `/votes/unvote/${questionId}/${answerId ? answerId : ''}`
     )
     setQuestion(data)
+=======
+
+    if(blogId) {
+      const { data } = await authAxios.get(
+        `/votes/upvoteB/${blogId}`
+      )
+      setBlog(data)
+    }
+    else {
+      const { data } = await authAxios.get(
+        `/votes/upvote/${questionId}/${answerId ? answerId : ''}`
+      )
+      setQuestion(data)
+    }
+  }
+
+  const downVote = async () => {
+
+    if(blogId) {
+      const { data } = await authAxios.get(
+        `/votes/downvoteB/${blogId}`
+      )
+      setBlog(data)
+    }
+    else {
+      const { data } = await authAxios.get(
+        `/votes/downvote/${questionId}/${answerId ? answerId : ''}`
+      )
+      setQuestion(data)
+      }
+    }
+
+  const unVote = async () => {
+
+      if(blogId) {
+        const { data } = await authAxios.get(
+          `/votes/unvoteB/${blogId}`
+        )
+        setBlog(data)
+      }
+      else
+      {
+        const { data } = await authAxios.get(
+          `/votes/unvote/${questionId}/${answerId ? answerId : ''}`
+        )
+        setQuestion(data)
+      }
+
+>>>>>>> master
   }
 
   return (

@@ -16,6 +16,7 @@ const PostSummary = ({
   created,
   questionId,
   answerId,
+  blogId,
   setQuestion,
   children
 }) => {
@@ -26,17 +27,28 @@ const PostSummary = ({
   const handleDeleteComment = async () => {
     const res = window.confirm('Are you sure delete your post?')
     if (res) {
-      const { data } = await authAxios.delete(
-        answerId
-          ? `/answer/${questionId}/${answerId}`
-          : `/question/${questionId}`
-      )
 
-      if (answerId) {
-        setQuestion(data)
-      } else {
-        router.push('/')
+      if(blogId) {
+        const { data } = await authAxios.delete(
+            `/blog/${blogId}`
+        )
+          router.push('/')
+        
       }
+      else {
+        const { data } = await authAxios.delete(
+          answerId
+            ? `/answer/${questionId}/${answerId}`
+            : `/question/${questionId}`
+        )
+  
+        if (answerId) {
+          setQuestion(data)
+        } else {
+          router.push('/')
+        }
+      }
+     
     }
   }
 

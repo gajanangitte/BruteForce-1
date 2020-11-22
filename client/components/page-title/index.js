@@ -16,12 +16,23 @@ const PageTitle = ({ title, button, borderBottom = true, children }) => {
         <h1>{title}</h1>
         <div className={styles.buttonContainer}>
           {button && (
+            <>
             <Button
               href={isAuthenticated() ? '/questions/ask' : '/auth'}
               primary
+              className={styles.button}
             >
               Ask Question
             </Button>
+
+            <Button
+              href={isAuthenticated() ? '/blogs/write' : '/auth'}
+              primary
+              className={styles.button}
+            >
+            Write a Blog
+            </Button>
+            </>
           )}
         </div>
       </div>

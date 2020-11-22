@@ -11,12 +11,13 @@
   flex-wrap: wrap-reverse;
   align-items: center;
   word-break: break-word;
+}
 
-  h1 {
+.title  h1 {
     font-size: 27px;
     max-width: 950px;
   }
-}
+
 
 .summary {
   margin-top: 20px;
@@ -29,11 +30,15 @@
   flex: 1;
   justify-content: flex-end;
   min-width: fit-content;
+}
 
-  button {
+.buttonContainer  button {
     flex-shrink: 0;
     @media (max-width: 1200px) {
       margin-bottom: 10px;
     }
   }
+
+.button {
+  margin: 5px;
 }

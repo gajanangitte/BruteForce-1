@@ -46,7 +46,11 @@ const Header = ({ className, ...props }) => {
         <Button className={styles.logo} href="/">
           <Logo />
           <p>
+<<<<<<< HEAD
             clone-of-stack<span>overflow</span>
+=======
+            Brute<span>Force</span>
+>>>>>>> master
           </p>
         </Button>
         <div style={{ flex: 1 }}></div>

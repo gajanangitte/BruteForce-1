@@ -17,7 +17,37 @@
   }
 }
 
+<<<<<<< HEAD
+=======
+.blogContainer {
+  margin-left: 1%;
+  top: 74px;
+  display: flex;
+  flex-direction: column;
+  padding-left: 12px;
+  border-radius: 10px;
+  background-color: rgb(211, 228, 243);
+
+  h2 {
+    text-align: center;
+    color: var(--black-700);
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 1em;
+  }
+}
+
+>>>>>>> master
 .popularTags {
   display: grid;
   grid-template-columns: auto auto;
 }
+<<<<<<< HEAD
+=======
+
+.popularBlogs {
+  display: grid;
+  grid-template-columns: auto;
+  padding: 5% 0;
+}
+>>>>>>> master
