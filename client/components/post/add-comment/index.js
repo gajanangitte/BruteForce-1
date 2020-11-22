@@ -12,8 +12,10 @@ import styles from './add-comment.module.css'
 const AddComment = ({
   questionId,
   answerId,
+  blogId,
   setShowAddComment,
-  setQuestion
+  setQuestion,
+  setBlog
 }) => {
   const { authAxios } = useContext(FetchContext)
 
@@ -22,20 +24,35 @@ const AddComment = ({
   return (
     <Formik
       initialValues={{ comment: '' }}
+
       onSubmit={async (values, { setStatus, resetForm }) => {
         setLoading(true)
         try {
-          const { data } = await authAxios.post(
-            `/comment/${questionId}/${answerId ? answerId : ''}`,
-            values
-          )
+          if(questionId)
+          {
+            let { data } = await authAxios.post(
+              `/comment/${questionId}/${answerId ? answerId : ''}`,
+              values
+            )
+            setQuestion(data);
 
-          setQuestion(data)
+            resetForm({})
+            setShowAddComment(false)
+          }
+          else if(blogId){
 
-          resetForm({})
-          setShowAddComment(false)
+            let { data } = await authAxios.post(
+              `/commentB/${blogId}`,
+              values
+            )
+            setBlog(data);
+
+            resetForm({})
+            setShowAddComment(false)
+          }
+          
         } catch (error) {
-          setStatus(error.response.data.message)
+          setStatus(error.response.data.message);
         }
         setLoading(false)
       }}

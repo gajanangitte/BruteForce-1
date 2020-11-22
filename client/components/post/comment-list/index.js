@@ -5,13 +5,15 @@ import ModalContext from '../../../store/modal'
 
 import AddComment from '../add-comment'
 
-import styles from './comment-list.module.css'
+import styles from './comment-list.module.css' 
 
 const CommentList = ({
   children,
   questionId,
   answerId,
+  blogId,
   setQuestion,
+  setBlog
 }) => {
   const { isAuthenticated } = useContext(AuthContext)
   const { handleComponentVisible } = useContext(ModalContext)
@@ -54,9 +56,11 @@ const CommentList = ({
       {showAddComment && (
         <AddComment
           questionId={questionId}
+          blogId={blogId}
           answerId={answerId}
           setShowAddComment={setShowAddComment}
           setQuestion={setQuestion}
+          setBlog={setBlog}
         />
       )}
     </div>

@@ -10,12 +10,22 @@ const {
   loadQuestions,
   questionValidate,
   createQuestion,
-  show,
+  showQ,
   listQuestions,
-  listByTags,
-  listByUser,
+  listQByTags,
+  listQByUser,
   removeQuestion
 } = require('./controllers/questions');
+const {
+  loadBlogs,
+  blogValidate,
+  createBlog,
+  showB,
+  listBlogs,
+  listBByTags,
+  listBByUser,
+  removeBlog
+} = require('./controllers/blogs');
 const {
   loadAnswers,
   answerValidate,
@@ -23,13 +33,14 @@ const {
   removeAnswer
 } = require('./controllers/answers');
 const { listPopulerTags, searchTags, listTags } = require('./controllers/tags');
-const { upvote, downvote, unvote } = require('./controllers/votes');
-const { loadComments, validate, createComment, removeComment } = require('./controllers/comments');
+const { upvote, downvote, unvote, upvoteB, downvoteB, unvoteB } = require('./controllers/votes');
+const { loadComments, createCommentBlog, validate, createComment, removeComment } = require('./controllers/comments');
 
 const requireAuth = require('./middlewares/requireAuth');
 const questionAuth = require('./middlewares/questionAuth');
 const commentAuth = require('./middlewares/commentAuth');
 const answerAuth = require('./middlewares/answerAuth');
+const blogAuth = require('./middlewares/blogAuth');
 
 const router = require('express').Router();
 
@@ -45,11 +56,21 @@ router.get('/user/:username', find);
 //questions
 router.param('question', loadQuestions);
 router.post('/questions', [requireAuth, questionValidate], createQuestion);
-router.get('/question/:question', show);
+router.get('/question/:question', showQ);
 router.get('/question', listQuestions);
-router.get('/questions/:tags', listByTags);
-router.get('/question/user/:username', listByUser);
+router.get('/questions/:tags', listQByTags);
+router.get('/question/user/:username', listQByUser);
 router.delete('/question/:question', [requireAuth, questionAuth], removeQuestion);
+
+//blogs
+router.param('blog', loadBlogs);
+router.post('/blogs', [requireAuth, blogValidate], createBlog);
+router.get('/blog/:blog', showB);
+router.get('/blog', listBlogs);
+router.get('/blogs/:tags', listBByTags);
+router.get('/blog/user/:username', listBByUser);
+router.delete('/blog/:blog', [requireAuth, blogAuth], removeBlog);
+
 
 //tags
 router.get('/tags/populertags', listPopulerTags);
@@ -65,10 +86,15 @@ router.delete('/answer/:question/:answer', [requireAuth, answerAuth], removeAnsw
 router.get('/votes/upvote/:question/:answer?', requireAuth, upvote);
 router.get('/votes/downvote/:question/:answer?', requireAuth, downvote);
 router.get('/votes/unvote/:question/:answer?', requireAuth, unvote);
+router.get('/votes/upvoteB/:blog', requireAuth, upvoteB);
+router.get('/votes/downvoteB/:blog', requireAuth, downvoteB);
+router.get('/votes/unvoteB/:blog', requireAuth, unvoteB);
+
 
 //comments
 router.param('comment', loadComments);
 router.post('/comment/:question/:answer?', [requireAuth, validate], createComment);
+router.post('/commentB/:blog', [requireAuth, validate], createCommentBlog);
 router.delete('/comment/:question/:comment', [requireAuth, commentAuth], removeComment);
 router.delete('/comment/:question/:answer/:comment', [requireAuth, commentAuth], removeComment);
 

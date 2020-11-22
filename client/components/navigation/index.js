@@ -18,7 +18,7 @@ const Navigation = () => {
         }
       >
         <World />
-        <span>Stack Overflow</span>
+        <span>Feed</span>
       </NavItem>
 
       <NavItem href="/tags" selected={router.pathname == '/tags'}>
@@ -30,6 +30,13 @@ const Navigation = () => {
         selected={router.pathname.split('/')[1] == 'users'}
       >
         <span>Users</span>
+      </NavItem>
+
+      <NavItem
+        href="/blogs"
+        selected={router.pathname == '/blogs'}
+      >
+        <span>Blogs</span>
       </NavItem>
     </nav>
   )

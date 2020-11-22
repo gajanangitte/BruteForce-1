@@ -14,6 +14,7 @@ const CommentItem = ({
   answerId,
   questionId,
   commentId,
+  blogId,
   setQuestion,
   children
 }) => {
@@ -43,7 +44,7 @@ const CommentItem = ({
       <p className={styles.dateText}>
         {format(new Date(created), "MMM dd'`'yy 'at' k':'mm")}{' '}
       </p>
-      {(authState.userInfo?.username === author || isAdmin()) && (
+      {(authState.userInfo?.username === author || isAdmin()) && (blogId === null) && (
         <a className={styles.delete} onClick={() => handleDeleteComment()}>
           delete
         </a>
