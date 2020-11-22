@@ -53,9 +53,6 @@ const ExtraBlog = ({ marginTop = 24 }) => {
             .map(
             ({
                 id,
-                votes,
-                answers,
-                views,
                 title,
                 text,
                 tags,

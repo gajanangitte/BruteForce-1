@@ -9,11 +9,7 @@ import { ArrowUp, ArrowDown } from '../../icons'
 
 import styles from './post-vote.module.css'
 
-<<<<<<< HEAD
-const PostVote = ({ score, votes, questionId, answerId, setQuestion }) => {
-=======
 const PostVote = ({ score, votes, questionId, answerId, setQuestion, blogId, setBlog }) => {
->>>>>>> master
   const { authState, isAuthenticated } = useContext(AuthContext)
   const { authAxios } = useContext(FetchContext)
   const { handleComponentVisible } = useContext(ModalContext)
@@ -27,26 +23,6 @@ const PostVote = ({ score, votes, questionId, answerId, setQuestion, blogId, set
   }
 
   const upVote = async () => {
-<<<<<<< HEAD
-    const { data } = await authAxios.get(
-      `/votes/upvote/${questionId}/${answerId ? answerId : ''}`
-    )
-    setQuestion(data)
-  }
-
-  const downVote = async () => {
-    const { data } = await authAxios.get(
-      `/votes/downvote/${questionId}/${answerId ? answerId : ''}`
-    )
-    setQuestion(data)
-  }
-
-  const unVote = async () => {
-    const { data } = await authAxios.get(
-      `/votes/unvote/${questionId}/${answerId ? answerId : ''}`
-    )
-    setQuestion(data)
-=======
 
     if(blogId) {
       const { data } = await authAxios.get(
@@ -94,7 +70,6 @@ const PostVote = ({ score, votes, questionId, answerId, setQuestion, blogId, set
         setQuestion(data)
       }
 
->>>>>>> master
   }
 
   return (

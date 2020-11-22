@@ -1,25 +1,15 @@
 import React, { useContext } from 'react'
 
-<<<<<<< HEAD
-import { TagContext } from '../../../store/tag'
-=======
 import { TagContext } from '../../../store/tag';
->>>>>>> master
 
 import Tag from '../../tag'
 import { Spinner } from '../../icons'
 
 import styles from './extra.module.css'
-<<<<<<< HEAD
-
-const Extra = ({ marginTop = 24 }) => {
-  const { tagState } = useContext(TagContext)
-=======
 import ExtraBlog from './blog';
 
 const Extra = ({ marginTop = 24 }) => {
   const { tagState } = useContext(TagContext);
->>>>>>> master
 
   return (
     <div className={styles.container}>
@@ -41,12 +31,9 @@ const Extra = ({ marginTop = 24 }) => {
           ))}
         </div>
       </div>
-<<<<<<< HEAD
-=======
 
       <ExtraBlog />
 
->>>>>>> master
     </div>
   )
 }

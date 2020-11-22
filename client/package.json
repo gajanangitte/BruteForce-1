@@ -12,7 +12,7 @@
     "icon": "svgr icons -d components/icons --icon --replace-attr-values \"#000=currentColor\""
   },
   "keywords": [],
-  "author": "",
+  "author": "bruteforce",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.19.2",

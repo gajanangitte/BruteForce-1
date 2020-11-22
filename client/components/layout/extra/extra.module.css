@@ -17,8 +17,6 @@
   }
 }
 
-<<<<<<< HEAD
-=======
 .blogContainer {
   margin-left: 1%;
   top: 74px;
@@ -37,17 +35,13 @@
   }
 }
 
->>>>>>> master
 .popularTags {
   display: grid;
   grid-template-columns: auto auto;
 }
-<<<<<<< HEAD
-=======
 
 .popularBlogs {
   display: grid;
   grid-template-columns: auto;
   padding: 5% 0;
 }
->>>>>>> master
