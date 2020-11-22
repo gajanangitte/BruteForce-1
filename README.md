@@ -19,10 +19,10 @@
 
 ```bash
 # Clone this repository
-$ git clone https://github.com/salihozdemir/stackoverflow-clone
+$ git clone https://github.com/BruteForce-CP/BruteForce.git
 
 # Go into the repository
-$ cd stackoverflow-clone
+$ cd BruteForce
 
 # Go into server
 $ cd server
