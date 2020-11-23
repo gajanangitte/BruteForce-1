@@ -19,7 +19,8 @@
 
 .blogContainer {
   margin-left: 1%;
-  top: 74px;
+  position : sticky;
+  top: 255px;
   display: flex;
   flex-direction: column;
   padding-left: 12px;
@@ -31,7 +32,6 @@
     color: var(--black-700);
     font-size: 18px;
     font-weight: 400;
-    margin-bottom: 1em;
   }
 }
 

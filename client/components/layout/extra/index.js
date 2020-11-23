@@ -24,7 +24,7 @@ const Extra = ({ marginTop = 24 }) => {
           </div>
         )}
         <div className={styles.popularTags}>
-          {tagState?.map((tag) => (
+          {tagState?.slice(0, 8).map((tag) => (
             <Tag key={tag._id} count={tag.count}>
               {tag._id}
             </Tag>

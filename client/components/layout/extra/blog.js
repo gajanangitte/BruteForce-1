@@ -35,12 +35,12 @@ const ExtraBlog = ({ marginTop = 24 }) => {
       }
 
   return (
-    <div className={styles.container}>
+    
       <div
         className={styles.blogContainer}
         style={{ marginTop: `${marginTop}px` }}
      >
-        <h2>Popular Blogs</h2>
+        <h2 style={{ marginTop: `12px` }}>Popular Blogs</h2>
         {!blogState && (
         <div className="loading">
             <Spinner />
@@ -49,7 +49,7 @@ const ExtraBlog = ({ marginTop = 24 }) => {
 
         <div className={styles.popularBlogs}>
             {blogState
-            ?.sort(handleSorting())
+            ?.slice(0, 3).sort(handleSorting())
             .map(
             ({
                 id,
@@ -76,7 +76,7 @@ const ExtraBlog = ({ marginTop = 24 }) => {
    
    
     </div>
-    </div>
+    
   )
 }
 
