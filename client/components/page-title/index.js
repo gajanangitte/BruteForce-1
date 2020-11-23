@@ -13,13 +13,13 @@ const PageTitle = ({ title, button, borderBottom = true, children }) => {
   return (
     <div className={cn(styles.container, borderBottom && styles.borderBottom)}>
       <div className={styles.title}>
-        <h1>{title}</h1>
+        <h1>{title}</h1> 
         <div className={styles.buttonContainer}>
           {button && (
             <>
             <Button
               href={isAuthenticated() ? '/questions/ask' : '/auth'}
-              primary
+              dark
               className={styles.button}
             >
               Ask Question
@@ -27,7 +27,7 @@ const PageTitle = ({ title, button, borderBottom = true, children }) => {
 
             <Button
               href={isAuthenticated() ? '/blogs/write' : '/auth'}
-              primary
+              dark
               className={styles.button}
             >
             Write a Blog

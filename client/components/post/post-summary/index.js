@@ -8,6 +8,7 @@ import { FetchContext } from '../../../store/fetch'
 
 import Tag from '../../tag'
 
+import Button from '../../button'
 import styles from './post-summary.module.css'
 
 const PostSummary = ({
@@ -87,7 +88,12 @@ const PostSummary = ({
         {(authState.userInfo?.id === author.id || isAdmin()) && (
           <div className={styles.row}>
             <a className={styles.delete} onClick={() => handleDeleteComment()}>
-              delete
+              <Button    
+                danger
+                className={styles.button}
+              >
+              Delete
+              </Button>
             </a>
           </div>
         )}

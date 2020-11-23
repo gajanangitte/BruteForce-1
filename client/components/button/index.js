@@ -23,6 +23,8 @@ const BaseButton = ({ children, ...props }) => {
 const Button = ({
   primary,
   secondary,
+  danger,
+  dark,
   full = false,
   isLoading = false,
   children,
@@ -36,6 +38,8 @@ const Button = ({
         styles.button,
         primary && styles.primary,
         secondary && styles.secondary,
+        danger && styles.danger,
+        dark && styles.dark,
         full && styles.full,
         isLoading && styles.isLoading,
         className

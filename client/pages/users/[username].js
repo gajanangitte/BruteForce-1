@@ -61,6 +61,7 @@ const UserDetail = ({ username }) => {
               vote={score}
               created={created}
               id={id}
+              postType = {postType}
             />
           ))}
 
