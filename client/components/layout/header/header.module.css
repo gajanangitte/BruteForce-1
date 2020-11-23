@@ -11,7 +11,7 @@
   transition: box-shadow cubic-bezier(0.165, 0.84, 0.44, 1) 0.25s;
   height: 50px;
   box-sizing: border-box;
-  border-top: 3px solid var(--orange);
+  border-top: 4px solid var(--black-025);
 }
 
 .container {

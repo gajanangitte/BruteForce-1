@@ -8,9 +8,9 @@ const PostList = ({ postType, setPostType, children }) => {
   return (
     <div className={styles.container}>
       <div className={styles.header}>
-        <h2>Last Questions</h2>
+        <h2>{postType}</h2>
         <ButtonGroup
-          buttons={['Questions']}
+          buttons={['Questions', 'Blogs']}
           selected={postType}
           setSelected={setPostType}
         />

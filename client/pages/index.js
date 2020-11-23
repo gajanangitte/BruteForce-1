@@ -54,7 +54,7 @@ const HomePage = () => {
   return (
     <Layout>
       <Head>
-        <title>
+        <title> 
           {router.query.tag ? router.query.tag : 'Home'}
         </title>
       </Head>

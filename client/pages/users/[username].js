@@ -15,17 +15,34 @@ const UserDetail = ({ username }) => {
   const [postType, setPostType] = useState('Questions')
 
   useEffect(() => {
-    const fetchQuestions = async () => {
-      const { data } = await publicFetch.get(`/question/user/${username}`)
-      setPosts(data)
+    
+    if(postType == 'Questions')
+    {
+      const fetchQuestions = async () => {
+        const { data } = await publicFetch.get(`/question/user/${username}`)
+        setPosts(data)
+      }
+
+      fetchQuestions()
     }
-    fetchQuestions()
+    else 
+    {
+      const fetchBlogs = async () => {
+        const { data } = await publicFetch.get(`/blog/user/${username}`)
+        setPosts(data)
+      }
+
+      fetchBlogs();
+    }
+
+    
+    
   }, [postType, username])
 
   return (
     <Layout extra={false}>
       <Head>
-        <title>Users {username} - Clone of Stackoverflow</title>
+        <title>Users {username} - BruteForce</title>
       </Head>
 
       <UserCard>

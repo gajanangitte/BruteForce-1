@@ -3,12 +3,12 @@
   background-color: var(--powder-100);
   color: var(--powder-700);
   font-size: 12px;
-  padding: 5px 6px;
-  border: 1px solid transparent;
+  padding: 6px 8px;
+  border: 2px solid transparent;
   margin: 2px 5px 2px 0;
   line-height: 1;
   white-space: nowrap;
-  border-radius: 3px;
+  border-radius: 6px;
 
   &:active {
     color: var(--blue-500);

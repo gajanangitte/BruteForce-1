@@ -21,7 +21,7 @@
 }
 
 .voted {
-  color: var(--orange) !important;
+  color: var(--black-900) !important;
 }
 
 .score {

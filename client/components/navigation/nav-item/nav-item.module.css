@@ -28,5 +28,5 @@
   font-weight: bold;
   background: var(--black-050);
   color: var(--black-900);
-  border-right: 3px solid var(--orange);
+  border-right: 4px solid var(--black-900);
 }
