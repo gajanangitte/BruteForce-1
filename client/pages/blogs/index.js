@@ -58,7 +58,7 @@ const Blogs = () => {
     <Layout>
       <Head>
         <title>
-          {router.query.tag ? router.query.tag : 'Blogs'}
+          {router.query.tag ? router.query.tag : 'Blogs - BruteForce'}
         </title>
       </Head>
 

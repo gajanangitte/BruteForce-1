@@ -3,6 +3,9 @@ import { useRouter } from 'next/router'
 
 import NavItem from './nav-item'
 import { World } from '../icons'
+import { Blog } from '../icons'
+import { Tag } from '../icons'
+import { User } from '../icons'
 
 import styles from './navigation.module.css'
 
@@ -21,7 +24,16 @@ const Navigation = () => {
         <span>Feed</span>
       </NavItem>
 
+      <NavItem
+        href="/blogs"
+        selected={router.pathname == '/blogs'}
+      >
+        <Blog/>
+        <span>Blogs</span>
+      </NavItem>
+
       <NavItem href="/tags" selected={router.pathname == '/tags'}>
+        <Tag/>
         <span>Tags</span>
       </NavItem>
 
@@ -29,15 +41,10 @@ const Navigation = () => {
         href="/users"
         selected={router.pathname.split('/')[1] == 'users'}
       >
+        <User/>
         <span>Users</span>
       </NavItem>
 
-      <NavItem
-        href="/blogs"
-        selected={router.pathname == '/blogs'}
-      >
-        <span>Blogs</span>
-      </NavItem>
     </nav>
   )
 }
