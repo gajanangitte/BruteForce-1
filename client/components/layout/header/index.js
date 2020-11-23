@@ -62,7 +62,7 @@ const Header = ({ className, ...props }) => {
                 <a>{authState.userInfo.username}!</a>
               </Link>
             </p>
-            <a onClick={() => logout()}>log out</a>
+            <a onClick={() => logout()}>Log Out</a>
           </div>
         ) : (
           <>

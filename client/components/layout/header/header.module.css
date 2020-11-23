@@ -89,7 +89,7 @@
 
 .userInfo {
   display: grid;
-  grid-template-columns: 1fr 43px;
+  grid-template-columns: 1fr 50px;
   grid-gap: 5px;
   margin-right: 5px;
 

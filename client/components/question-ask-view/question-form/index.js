@@ -101,11 +101,11 @@ const QuestionForm = () => {
             <div>
               <Button
                 type="submit"
-                primary
+                dark
                 isLoading={loading}
                 disabled={isSubmitting}
               >
-                Review your question
+                Post question
               </Button>
             </div>
           </div>
