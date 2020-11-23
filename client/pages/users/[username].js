@@ -13,6 +13,7 @@ import { Spinner } from '../../components/icons'
 const UserDetail = ({ username }) => {
   const [posts, setPosts] = useState(null)
   const [postType, setPostType] = useState('Questions')
+  const [reputation, setReputation] = useState(0);
 
   useEffect(() => {
     
@@ -34,10 +35,16 @@ const UserDetail = ({ username }) => {
 
       fetchBlogs();
     }
+  }, [postType, username]);
 
-    
-    
-  }, [postType, username])
+  useEffect(() => {
+    const fetRep = async () => {
+      const { data } = await publicFetch.get(`/user/${username}`)
+      console.log(data);
+      setReputation(data);
+    }
+    fetRep();
+  }, [])
 
   return (
     <Layout extra={false}>
@@ -47,6 +54,9 @@ const UserDetail = ({ username }) => {
 
       <UserCard>
         <AvatarCard username={username} />
+
+
+
         <PostList postType={postType} setPostType={setPostType}>
           {!posts && (
             <div className="loading">
@@ -70,6 +80,7 @@ const UserDetail = ({ username }) => {
               Don&apos;t have any questions yet.
             </p>
           )}
+         
         </PostList>
       </UserCard>
     </Layout>
